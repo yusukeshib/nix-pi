@@ -27,8 +27,8 @@
           pkgs = import nixpkgs { inherit system; };
 
           src = pkgs.fetchFromGitHub {
-            owner = "badlogic";
-            repo = "pi-mono";
+            owner = "earendil-works";
+            repo = "pi";
             inherit rev hash;
           };
 

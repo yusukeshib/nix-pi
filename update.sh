@@ -2,8 +2,8 @@
 # shellcheck shell=bash
 set -euo pipefail
 
-repo_url=https://github.com/badlogic/pi-mono.git
-archive_base_url=https://github.com/badlogic/pi-mono/archive/refs/tags
+repo_url=https://github.com/earendil-works/pi.git
+archive_base_url=https://github.com/earendil-works/pi/archive/refs/tags
 version_file=VERSION.json
 models_file=models.generated.ts
 

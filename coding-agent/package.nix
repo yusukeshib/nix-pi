@@ -54,7 +54,7 @@ buildNpmPackage {
       --replace-fail $'\t\tconst action = theme.fg("accent", `''${APP_NAME} update`);\n\t\tconst updateInstruction = theme.fg("muted", `New version ''${newVersion} is available. Run `) + action;' \
                      $'\t\tconst action = theme.fg("accent", `https://github.com/lukasl-dev/pi-mono.nix/releases/tag/v''${newVersion}`);\n\t\tconst updateInstruction = theme.fg("muted", `New version ''${newVersion} is available. Run `) + action;' \
       --replace-fail '"https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/CHANGELOG.md"' \
-                     '`https://github.com/badlogic/pi-mono/blob/v''${newVersion}/packages/coding-agent/CHANGELOG.md`'
+                     '`https://github.com/earendil-works/pi/blob/v''${newVersion}/packages/coding-agent/CHANGELOG.md`'
 
     cp ${../models.generated.ts} packages/ai/src/models.generated.ts
 
@@ -91,7 +91,7 @@ buildNpmPackage {
 
   meta = {
     description = "Pi - a minimal terminal coding harness";
-    homepage = "https://github.com/badlogic/pi-mono";
+    homepage = "https://github.com/earendil-works/pi";
     license = lib.licenses.mit;
     mainProgram = "pi";
     maintainers = [

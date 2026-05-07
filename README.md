@@ -1,6 +1,6 @@
 # pi-mono.nix
 
-A small Nix flake for [pi](https://github.com/badlogic/pi-mono), the terminal coding agent. It gives you:
+A small Nix flake for [pi](https://github.com/earendil-works/pi), the terminal coding agent. It gives you:
 
 - `nix run`
 - `nix build`
@@ -8,9 +8,9 @@ A small Nix flake for [pi](https://github.com/badlogic/pi-mono), the terminal co
 
 ## Why
 
-The upstream `pi-mono` repo does not ship a `flake.nix`, so this exists to make pi easy to use from Nix without going through npm/node.
+The upstream `pi` repo does not ship a `flake.nix`, so this exists to make pi easy to use from Nix without going through npm/node.
 
-See [#2310](https://github.com/badlogic/pi-mono/issues/2310) for context.
+See [#2310](https://github.com/earendil-works/pi/issues/2310) for context.
 
 ## Run
 

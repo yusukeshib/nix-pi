@@ -95,20 +95,20 @@ buildNpmPackage {
 
   installPhase = ''
     runHook preInstall
-    mkdir -p $out/bin $out/lib/node_modules/@mariozechner
+    mkdir -p $out/bin $out/lib/node_modules/@earendil-works
 
     for pkg in tui ai agent coding-agent mom pods; do
       [ -d "packages/$pkg/dist" ] || continue
-      mkdir -p "$out/lib/node_modules/@mariozechner/pi-$pkg"
-      cp -r packages/$pkg/dist/* "$out/lib/node_modules/@mariozechner/pi-$pkg/"
-      cp packages/$pkg/package.json "$out/lib/node_modules/@mariozechner/pi-$pkg/"
+      mkdir -p "$out/lib/node_modules/@earendil-works/pi-$pkg"
+      cp -r packages/$pkg/dist/* "$out/lib/node_modules/@earendil-works/pi-$pkg/"
+      cp packages/$pkg/package.json "$out/lib/node_modules/@earendil-works/pi-$pkg/"
     done
 
     cp -rL node_modules/. "$out/lib/node_modules/"
 
     makeWrapper ${nodejs}/bin/node $out/bin/pi \
-      --add-flags "$out/lib/node_modules/@mariozechner/pi-coding-agent/dist/cli.js" \
-      --set PI_PACKAGE_DIR "$out/lib/node_modules/@mariozechner/pi-coding-agent" \
+      --add-flags "$out/lib/node_modules/@earendil-works/pi-coding-agent/dist/cli.js" \
+      --set PI_PACKAGE_DIR "$out/lib/node_modules/@earendil-works/pi-coding-agent" \
       --prefix NODE_PATH : "$out/lib/node_modules" \
       --suffix PATH : "${runtimeBins}" \
       --run 'export NPM_CONFIG_PREFIX="''${NPM_CONFIG_PREFIX:-''${XDG_DATA_HOME:-$HOME/.local/share}/pi/npm}"'

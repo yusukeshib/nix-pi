@@ -66,10 +66,6 @@ buildNpmPackage {
       [ -f "$f" ] && echo '// @ts-nocheck' | cat - "$f" > tmp && mv tmp "$f"
     done
 
-    substituteInPlace packages/coding-agent/src/modes/interactive/interactive-mode.ts \
-      --replace-fail $'\t\tconst action = theme.fg("accent", `''${APP_NAME} update`);\n\t\tconst updateInstruction = theme.fg("muted", `New version ''${newVersion} is available. Run `) + action;' \
-                     $'\t\tconst action = theme.fg("accent", `https://github.com/lukasl-dev/pi-mono.nix/releases/tag/v''${newVersion}`);\n\t\tconst updateInstruction = theme.fg("muted", `New version ''${newVersion} is available. Run `) + action;'
-
     changelogReplacement='`https://github.com/earendil-works/pi/blob/v''${newVersion}/packages/coding-agent/CHANGELOG.md`'
     for changelogUrl in \
       '"https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/CHANGELOG.md"' \

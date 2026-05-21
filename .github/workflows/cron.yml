@@ -56,7 +56,7 @@ jobs:
           push_tag=false
           if [[ "${{ steps.update.outputs.version_changed }}" == "true" ]]; then
             git add VERSION.json models.generated.ts package-lock.json
-            git commit -m "Update pi-mono to ${version}"
+            git commit -m "Update pi to ${version}"
 
             if ! git ls-remote --tags --refs origin "refs/tags/${version}" | grep -q .; then
               git tag -a "${version}" -m "${version}"

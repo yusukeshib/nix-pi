@@ -7051,7 +7051,7 @@ export const MODELS = {
 				cacheWrite: 0,
 			},
 			contextWindow: 200000,
-			maxTokens: 128000,
+			maxTokens: 32000,
 		} satisfies Model<"openai-completions">,
 		"claude-haiku-4-5": {
 			id: "claude-haiku-4-5",
@@ -8513,13 +8513,13 @@ export const MODELS = {
 			reasoning: false,
 			input: ["text"],
 			cost: {
-				input: 0.32,
-				output: 0.8899999999999999,
+				input: 0.2288,
+				output: 0.9144,
 				cacheRead: 0,
 				cacheWrite: 0,
 			},
-			contextWindow: 163840,
-			maxTokens: 16384,
+			contextWindow: 131072,
+			maxTokens: 16000,
 		} satisfies Model<"openai-completions">,
 		"deepseek/deepseek-chat-v3-0324": {
 			id: "deepseek/deepseek-chat-v3-0324",

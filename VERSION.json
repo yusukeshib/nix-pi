@@ -1,9 +1,9 @@
 {
-  "rev": "v0.76.0",
-  "hash": "sha256-mlnkSmNJbRfDa0DyGvl0hSV1r2aPszW1G6lz5fAqQeY=",
+  "rev": "v0.77.0",
+  "hash": "sha256-PJyhLWfqoPjHoYl4pKJVD3uMD5YjQB5YIk5mBZvGi8E=",
   "projects": {
     "coding-agent": {
-      "npmDepsHash": "sha256-mAVgbxXWEqLh4MczBcppo4rLY8DMxj7TL51FMvs70kE="
+      "npmDepsHash": "sha256-AwOAXk/hZ3L/8U82hXCh9cVDZi7QAZbJErs/ScNrZgo="
     }
   }
 }

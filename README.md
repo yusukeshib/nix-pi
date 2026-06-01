@@ -54,7 +54,6 @@ nix.settings = {
 
   programs.pi.coding-agent = {
     enable = true;
-    # users = [ "lukas" ]; # defaults to all normal users
     # rules = ''Be concise.'';
     # skills = [ ./skills/my-skill ];
     # extensions = [ ./extensions/my-extension.ts ];
@@ -124,7 +123,6 @@ Common options under `programs.pi.coding-agent` / `pi.coding-agent`:
 - `extensions`
 - `themes`
 - `promptTemplates`
-- `models` (NixOS/Home Manager modules only)
-- `users` (NixOS module only)
+- `models`
 - `extraArgs`
 - `environment`

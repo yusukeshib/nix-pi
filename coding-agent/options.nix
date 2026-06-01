@@ -25,6 +25,16 @@ in
       description = "The pi coding-agent package to install.";
     };
 
+    models = lib.mkOption {
+      type = lib.types.nullOr lib.types.path;
+      default = null;
+      description = ''
+        Path to a pi models.json file to install as
+        {file}`~/.pi/agent/models.json`.
+      '';
+      example = lib.literalExpression "./models.json";
+    };
+
     rules = lib.mkOption {
       type = lib.types.nullOr lib.types.lines;
       default = null;
@@ -128,6 +138,7 @@ in
     let
       inherit (cfg)
         package
+        models
         rules
         extensions
         skills
@@ -158,7 +169,7 @@ in
 
       envPaths = lib.optionalAttrs (lib.isAttrs environment) environment;
 
-      prelude = lib.optionalString (environment != null) (
+      envPrelude = lib.optionalString (environment != null) (
         if lib.isAttrs environment then
           lib.concatLines (
             lib.mapAttrsToList (
@@ -175,16 +186,30 @@ in
           ''
       );
 
+      modelsPrelude =
+        lib.optionalString (models != null) # bash
+          ''
+            if [ -L "$HOME/.pi/agent/models.json" ]; then
+              rm "$HOME/.pi/agent/models.json"
+            fi
+            if [ ! -f "$HOME/.pi/agent/models.json" ]; then
+              mkdir -p $HOME/.pi/agent
+              install -m 0600 ${models} "$HOME/.pi/agent/models.json"
+            fi
+          '';
+
       argsStr = lib.concatMapStringsSep " " lib.escapeShellArg resourceArgs;
       extraArgsStr = lib.concatMapStringsSep " " lib.escapeShellArg extraArgs;
 
       wrapped =
-        if resourceArgs == [ ] && environment == null && extraArgs == [ ] then
+        if resourceArgs == [ ] && environment == null && models == null && extraArgs == [ ] then
           package
         else
           pkgs.writeShellScriptBin "pi" # bash
             ''
-              ${prelude}
+              ${envPrelude}
+              ${modelsPrelude}
+
               case "''${1-}" in install|remove|uninstall|update|list|config)
                   exec ${lib.escapeShellArg (lib.getExe package)} "$@"
                   ;;

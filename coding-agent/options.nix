@@ -49,7 +49,7 @@ in
     };
 
     extensions = lib.mkOption {
-      type = lib.types.listOf lib.types.path;
+      type = lib.types.listOf (lib.types.either lib.types.path lib.types.str);
       default = [ ];
       description = ''
         Extension paths to pass to pi via repeated `--extension` flags for every invocation.

@@ -115,6 +115,12 @@ in
       '';
     };
 
+    settings = lib.mkOption {
+      type = lib.types.attrs;
+      default = { };
+      description = "Contents of ~/.pi/agent/settings.json";
+    };
+
     finalRules = lib.mkOption {
       type = lib.types.nullOr lib.types.path;
       internal = true;
@@ -146,6 +152,7 @@ in
         promptTemplates
         extraArgs
         environment
+        settings
         ;
 
       pathFlags =
@@ -198,17 +205,37 @@ in
             fi
           '';
 
+      settingsPath =
+        if settings == { } then null else pkgs.writeText "pi-settings.json" (builtins.toJSON settings);
+
+      settingsPrelude =
+        lib.optionalString (settingsPath != null) # bash
+          ''
+            if [ -L "$HOME/.pi/agent/settings.json" ]; then
+              rm "$HOME/.pi/agent/settings.json"
+            fi
+            mkdir -p $HOME/.pi/agent
+            install -m 0600 ${settingsPath} "$HOME/.pi/agent/settings.json"
+          '';
+
       argsStr = lib.concatMapStringsSep " " lib.escapeShellArg resourceArgs;
       extraArgsStr = lib.concatMapStringsSep " " lib.escapeShellArg extraArgs;
 
       wrapped =
-        if resourceArgs == [ ] && environment == null && models == null && extraArgs == [ ] then
+        if
+          resourceArgs == [ ]
+          && environment == null
+          && models == null
+          && settingsPath == null
+          && extraArgs == [ ]
+        then
           package
         else
           pkgs.writeShellScriptBin "pi" # bash
             ''
               ${envPrelude}
               ${modelsPrelude}
+              ${settingsPrelude}
 
               case "''${1-}" in install|remove|uninstall|update|list|config)
                   exec ${lib.escapeShellArg (lib.getExe package)} "$@"

@@ -1535,9 +1535,9 @@
     url = "https://registry.npmjs.org/semver/-/semver-5.7.2.tgz";
     hash = "sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==";
   };
-  "semver@7.8.3" = fetchurl {
-    url = "https://registry.npmjs.org/semver/-/semver-7.8.3.tgz";
-    hash = "sha512-wnilbGyMxzbY7dNOl7jpKbLSjcfeweJWU5j4+u5qW+6/wuGD9KzIGOyZnQVSBM9E7DtWaaH3CyHkppYrKYoxwg==";
+  "semver@7.8.4" = fetchurl {
+    url = "https://registry.npmjs.org/semver/-/semver-7.8.4.tgz";
+    hash = "sha512-rUCObTnP32Q08R2uuIrt7r9PlEonuTmtuXYcW6s5kjdlj3xbnwe+21yXptAUYcMAABLkYYTtnmzb3w3EDZfueA==";
   };
   "shebang-command@1.2.0" = fetchurl {
     url = "https://registry.npmjs.org/shebang-command/-/shebang-command-1.2.0.tgz";

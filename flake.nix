@@ -16,10 +16,7 @@
       "https://nix-community.cachix.org"
     ];
     extra-trusted-public-keys = [
-      # TODO: replace with the public key shown after `cachix create nix-pi`
-      # (Cachix dashboard → nix-pi → "Public key"). Until then darwin pulls
-      # will not verify against this cache.
-      "nix-pi.cachix.org-1:REPLACE_ME_WITH_REAL_PUBLIC_KEY="
+      "nix-pi.cachix.org-1:GGCds3erNSQqVIu9v8TvtBUZW8wzIC/cIWpQtor4qog="
       "pi.cachix.org-1:lGeoGJaZ5ZDabuRzkcD5EBTNnDM4HJ1vqeOxlWk1Flk="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];

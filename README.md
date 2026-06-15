@@ -1,6 +1,15 @@
-# pi.nix
+# nix-pi
 
-A Nix flake for [pi](https://github.com/earendil-works/pi), the terminal coding agent.
+A personal Nix flake for [pi](https://github.com/earendil-works/pi), the terminal
+coding agent. Forked from [lukasl-dev/pi.nix](https://github.com/lukasl-dev/pi.nix);
+the difference is the CI builds **aarch64-darwin in addition to x86_64-linux** and
+pushes both to the [`nix-pi`](https://app.cachix.org/cache/nix-pi) Cachix cache, so
+Apple Silicon installs come from the binary cache instead of compiling locally.
+
+Sync upstream with `git fetch upstream && git merge upstream/main`.
+
+---
+
 
 It provides:
 

@@ -3,7 +3,8 @@ name: Cron
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 4 * * *"
+    # Hourly so new pi releases are picked up fast (upstream pi.nix runs once/day).
+    - cron: "0 * * * *"
 
 permissions:
   contents: write
@@ -13,8 +14,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  cron:
+  update:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.update.outputs.version }}
+      version_changed: ${{ steps.update.outputs.version_changed }}
+      sha: ${{ steps.push.outputs.sha }}
 
     steps:
       - name: Check out repository
@@ -32,7 +37,7 @@ jobs:
       - name: Set up Cachix
         uses: cachix/cachix-action@v14
         with:
-          name: pi
+          name: nix-pi
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Update version and models
@@ -40,6 +45,7 @@ jobs:
         run: ./update.sh
 
       - name: Commit and push changes
+        id: push
         env:
           BRANCH: ${{ github.ref_name }}
         run: |
@@ -48,30 +54,65 @@ jobs:
 
           if git diff --quiet --exit-code VERSION.json models.generated.ts package-lock.json bun.lock coding-agent/bun.nix; then
             echo "No changes to commit"
-            exit 0
-          fi
-
-          version="${{ steps.update.outputs.version }}"
-
-          push_tag=false
-          if [[ "${{ steps.update.outputs.version_changed }}" == "true" ]]; then
-            git add VERSION.json models.generated.ts package-lock.json bun.lock coding-agent/bun.nix
-            git commit -m "Update pi to ${version}"
-
-            if ! git ls-remote --tags --refs origin "refs/tags/${version}" | grep -q .; then
-              git tag -a "${version}" -m "${version}"
-              push_tag=true
-            fi
           else
-            git add models.generated.ts package-lock.json bun.lock coding-agent/bun.nix
-            if [[ "${{ steps.update.outputs.models_changed }}" == "true" ]]; then
-              git commit -m "Update models"
+            version="${{ steps.update.outputs.version }}"
+            push_tag=false
+            if [[ "${{ steps.update.outputs.version_changed }}" == "true" ]]; then
+              git add VERSION.json models.generated.ts package-lock.json bun.lock coding-agent/bun.nix
+              git commit -m "Update pi to ${version}"
+              if ! git ls-remote --tags --refs origin "refs/tags/${version}" | grep -q .; then
+                git tag -a "${version}" -m "${version}"
+                push_tag=true
+              fi
             else
-              git commit -m "Update lockfiles"
+              git add models.generated.ts package-lock.json bun.lock coding-agent/bun.nix
+              if [[ "${{ steps.update.outputs.models_changed }}" == "true" ]]; then
+                git commit -m "Update models"
+              else
+                git commit -m "Update lockfiles"
+              fi
+            fi
+            git push origin "HEAD:${BRANCH}"
+            if [[ "$push_tag" == "true" ]]; then
+              git push origin "refs/tags/${version}"
             fi
           fi
 
-          git push origin "HEAD:${BRANCH}"
-          if [[ "$push_tag" == "true" ]]; then
-            git push origin "refs/tags/${version}"
-          fi
+          # Always emit the commit to build (new or existing) so the build job
+          # checks out a ref that exists on the remote.
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: update
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-14 # Apple Silicon (aarch64-darwin)
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Check out built revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.update.outputs.sha }}
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            accept-flake-config = true
+
+      - name: Set up Cachix
+        uses: cachix/cachix-action@v14
+        with:
+          name: nix-pi
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: Build coding-agent (npm)
+        run: nix build .#coding-agent --no-link --print-build-logs
+
+      - name: Build coding-agent-bun
+        continue-on-error: true
+        run: nix build .#coding-agent-bun --no-link --print-build-logs

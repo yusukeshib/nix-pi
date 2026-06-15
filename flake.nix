@@ -1,5 +1,5 @@
 {
-  description = "pi-mono";
+  description = "nix-pi: a Nix flake for pi, built for aarch64-darwin + x86_64-linux via GitHub Actions and cached on Cachix";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -11,10 +11,15 @@
 
   nixConfig = {
     extra-substituters = [
+      "https://nix-pi.cachix.org"
       "https://pi.cachix.org"
       "https://nix-community.cachix.org"
     ];
     extra-trusted-public-keys = [
+      # TODO: replace with the public key shown after `cachix create nix-pi`
+      # (Cachix dashboard → nix-pi → "Public key"). Until then darwin pulls
+      # will not verify against this cache.
+      "nix-pi.cachix.org-1:REPLACE_ME_WITH_REAL_PUBLIC_KEY="
       "pi.cachix.org-1:lGeoGJaZ5ZDabuRzkcD5EBTNnDM4HJ1vqeOxlWk1Flk="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];

@@ -1354,9 +1354,9 @@
     url = "https://registry.npmjs.org/nan/-/nan-2.27.0.tgz";
     hash = "sha512-hC+0LidcL3XE4rp1C4H54KujgXKzbfyTngZTwBByQxsOxCEKZT0MPQ4hOKUH2jU1OYstqdDH4onyHPDzcV0XdQ==";
   };
-  "nanoid@3.3.12" = fetchurl {
-    url = "https://registry.npmjs.org/nanoid/-/nanoid-3.3.12.tgz";
-    hash = "sha512-ZB9RH/39qpq5Vu6Y+NmUaFhQR6pp+M2Xt76XBnEwDaGcVAqhlvxrl3B2bKS5D3NH3QR76v3aSrKaF/Kiy7lEtQ==";
+  "nanoid@3.3.13" = fetchurl {
+    url = "https://registry.npmjs.org/nanoid/-/nanoid-3.3.13.tgz";
+    hash = "sha512-sPdqC6ByMVVGvF1ynvvMo0/o+oD1VX7DaHhijt1bFgjvBkHBib4t49GoNDhf2NDta4oeUNlaGbSt5K7qjZ955Q==";
   };
   "napi-build-utils@2.0.0" = fetchurl {
     url = "https://registry.npmjs.org/napi-build-utils/-/napi-build-utils-2.0.0.tgz";

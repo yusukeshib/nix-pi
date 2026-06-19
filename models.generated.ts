@@ -13068,7 +13068,7 @@ export const MODELS = {
 			input: ["text"],
 			cost: {
 				input: 1.2,
-				output: 3.2,
+				output: 4.1,
 				cacheRead: 0.2,
 				cacheWrite: 0,
 			},

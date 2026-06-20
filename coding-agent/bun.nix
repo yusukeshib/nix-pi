@@ -1242,9 +1242,9 @@
     url = "https://registry.npmjs.org/partial-json/-/partial-json-0.1.7.tgz";
     hash = "sha512-Njv/59hHaokb/hRUjce3Hdv12wd60MtM9Z5Olmn+nehe0QDAsRtRbJPvJ0Z91TusF0SuZRIvnM+S4l6EIP8leA==";
   };
-  "path-expression-matcher@1.5.0" = fetchurl {
-    url = "https://registry.npmjs.org/path-expression-matcher/-/path-expression-matcher-1.5.0.tgz";
-    hash = "sha512-cbrerZV+6rvdQrrD+iGMcZFEiiSrbv9Tfdkvnusy6y0x0GKBXREFg/Y65GhIfm0tnLntThhzCnfKwp1WRjeCyQ==";
+  "path-expression-matcher@1.6.0" = fetchurl {
+    url = "https://registry.npmjs.org/path-expression-matcher/-/path-expression-matcher-1.6.0.tgz";
+    hash = "sha512-e5y7RCLHKjemsgQ4eqGJtPyr10ILz25HO7flzxhTV8bgvd5yHx98DGtCAtbVW9f2TqnYI/gEVZd+vz7snrdPTw==";
   };
   "path-key@2.0.1" = fetchurl {
     url = "https://registry.npmjs.org/path-key/-/path-key-2.0.1.tgz";

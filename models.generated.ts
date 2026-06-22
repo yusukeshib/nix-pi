@@ -13016,13 +13016,13 @@ export const MODELS = {
 			thinkingLevelMap: {"xhigh":"xhigh"},
 			input: ["text"],
 			cost: {
-				input: 1,
-				output: 4,
-				cacheRead: 0.18,
+				input: 0.98,
+				output: 3.08,
+				cacheRead: 0.182,
 				cacheWrite: 0,
 			},
 			contextWindow: 1048576,
-			maxTokens: 32768,
+			maxTokens: 4096,
 		} satisfies Model<"openai-completions">,
 		"~anthropic/claude-fable-latest": {
 			id: "~anthropic/claude-fable-latest",

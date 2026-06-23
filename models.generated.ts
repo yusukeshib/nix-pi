@@ -12196,23 +12196,6 @@ export const MODELS = {
 			contextWindow: 262144,
 			maxTokens: 32768,
 		} satisfies Model<"openai-completions">,
-		"prime-intellect/intellect-3": {
-			id: "prime-intellect/intellect-3",
-			name: "Prime Intellect: INTELLECT-3",
-			api: "openai-completions",
-			provider: "openrouter",
-			baseUrl: "https://openrouter.ai/api/v1",
-			reasoning: true,
-			input: ["text"],
-			cost: {
-				input: 0.2,
-				output: 1.1,
-				cacheRead: 0,
-				cacheWrite: 0,
-			},
-			contextWindow: 131072,
-			maxTokens: 131072,
-		} satisfies Model<"openai-completions">,
 		"qwen/qwen-2.5-72b-instruct": {
 			id: "qwen/qwen-2.5-72b-instruct",
 			name: "Qwen2.5 72B Instruct",

@@ -1263,9 +1263,9 @@
     url = "https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz";
     hash = "sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==";
   };
-  "postcss@8.5.15" = fetchurl {
-    url = "https://registry.npmjs.org/postcss/-/postcss-8.5.15.tgz";
-    hash = "sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==";
+  "postcss@8.5.16" = fetchurl {
+    url = "https://registry.npmjs.org/postcss/-/postcss-8.5.16.tgz";
+    hash = "sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==";
   };
   "prebuild-install@7.1.3" = fetchurl {
     url = "https://registry.npmjs.org/prebuild-install/-/prebuild-install-7.1.3.tgz";

@@ -205,6 +205,7 @@
   "@earendil-works/pi-agent-core" = copyPathToStore (workspaceRoot + "/packages/agent");
   "@earendil-works/pi-ai" = copyPathToStore (workspaceRoot + "/packages/ai");
   "@earendil-works/pi-coding-agent" = copyPathToStore (workspaceRoot + "/packages/coding-agent");
+  "@earendil-works/pi-orchestrator" = copyPathToStore (workspaceRoot + "/packages/orchestrator");
   "@earendil-works/pi-tui" = copyPathToStore (workspaceRoot + "/packages/tui");
   "@emnapi/core@1.11.1" = fetchurl {
     url = "https://registry.npmjs.org/@emnapi/core/-/core-1.11.1.tgz";
@@ -1534,9 +1535,5 @@
   "zod@3.25.76" = fetchurl {
     url = "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz";
     hash = "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==";
-  };
-  "zod@4.4.3" = fetchurl {
-    url = "https://registry.npmjs.org/zod/-/zod-4.4.3.tgz";
-    hash = "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==";
   };
 }

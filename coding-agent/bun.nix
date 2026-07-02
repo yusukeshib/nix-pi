@@ -1256,9 +1256,9 @@
     url = "https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz";
     hash = "sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==";
   };
-  "picomatch@4.0.4" = fetchurl {
-    url = "https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz";
-    hash = "sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==";
+  "picomatch@4.0.5" = fetchurl {
+    url = "https://registry.npmjs.org/picomatch/-/picomatch-4.0.5.tgz";
+    hash = "sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==";
   };
   "postcss@8.5.16" = fetchurl {
     url = "https://registry.npmjs.org/postcss/-/postcss-8.5.16.tgz";

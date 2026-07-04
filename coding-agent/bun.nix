@@ -1272,9 +1272,9 @@
     url = "https://registry.npmjs.org/proper-lockfile/-/proper-lockfile-4.1.2.tgz";
     hash = "sha512-TjNPblN4BwAWMXU8s9AEz4JmQxnD1NNL7bNOY/AKUzyamc379FWASUhc/K1pL2noVb+XmZKLL68cjzLsiOAMaA==";
   };
-  "protobufjs@7.6.4" = fetchurl {
-    url = "https://registry.npmjs.org/protobufjs/-/protobufjs-7.6.4.tgz";
-    hash = "sha512-RJJPTTpvFfHcWLkIa2JFWK4XvtSzS0yEWDmunqHXli1h3JlkbcQZXDZdcWxv+JK3Xsl5/UFDPZ0iGm7DAengYw==";
+  "protobufjs@7.6.5" = fetchurl {
+    url = "https://registry.npmjs.org/protobufjs/-/protobufjs-7.6.5.tgz";
+    hash = "sha512-/FPD0nUc9jH6rfFjji9IBqOz4pcSE3CsT1m7Ep6Mdb0LxSUMj8hgl6GomOvZzpNpAqqGaXA0P3VSrZLFzIhQrw==";
   };
   "pump@3.0.4" = fetchurl {
     url = "https://registry.npmjs.org/pump/-/pump-3.0.4.tgz";

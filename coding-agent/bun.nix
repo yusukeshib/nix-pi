@@ -1107,9 +1107,9 @@
     url = "https://registry.npmjs.org/long/-/long-5.3.2.tgz";
     hash = "sha512-mNAgZ1GmyNhD7AuqnTG3/VQ26o760+ZYBPKjPvugO8+nLbYfX6TVpJPseBvopbdY+qpZ/lKUnmEc1LeZYS3QAA==";
   };
-  "lru-cache@11.5.1" = fetchurl {
-    url = "https://registry.npmjs.org/lru-cache/-/lru-cache-11.5.1.tgz";
-    hash = "sha512-RPimw/7aMdv2oqRrxKwvZXcPfwBrn/JZ2xYcY9Hus/6LaS3VOAKVWKWgNLCFSiOm1ESXinjsDlidVU7JlnCN2A==";
+  "lru-cache@11.5.2" = fetchurl {
+    url = "https://registry.npmjs.org/lru-cache/-/lru-cache-11.5.2.tgz";
+    hash = "sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g==";
   };
   "magic-string@0.30.21" = fetchurl {
     url = "https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz";

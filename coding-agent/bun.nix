@@ -1536,8 +1536,4 @@
     url = "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz";
     hash = "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==";
   };
-  "zod@4.4.3" = fetchurl {
-    url = "https://registry.npmjs.org/zod/-/zod-4.4.3.tgz";
-    hash = "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==";
-  };
 }
